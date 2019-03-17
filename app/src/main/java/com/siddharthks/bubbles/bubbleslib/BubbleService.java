@@ -1,4 +1,4 @@
-package com.siddharthks.bubbleslib;
+package com.siddharthks.bubbles.bubbleslib;
 
 import android.app.Service;
 import android.content.Context;
@@ -10,7 +10,6 @@ import android.graphics.Point;
 import android.os.Build;
 import android.os.IBinder;
 import android.support.annotation.NonNull;
-import android.support.v7.widget.CardView;
 import android.util.DisplayMetrics;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -20,7 +19,7 @@ import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
-public class BubbleService extends Service{
+public class BubbleService extends Service {
 
     protected static final String TAG = BubbleService.class.getSimpleName();
 

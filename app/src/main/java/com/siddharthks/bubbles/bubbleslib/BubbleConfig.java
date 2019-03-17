@@ -1,4 +1,4 @@
-package com.siddharthks.bubbleslib;
+package com.siddharthks.bubbles.bubbleslib;
 
 import android.content.Context;
 import android.graphics.Color;
@@ -6,7 +6,6 @@ import android.graphics.drawable.Drawable;
 import android.support.v4.content.ContextCompat;
 import android.view.Gravity;
 import android.view.View;
-
 
 public class BubbleConfig {
 

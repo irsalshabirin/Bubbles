@@ -1,4 +1,4 @@
-package com.siddharthks.bubbleslib;
+package com.siddharthks.bubbles.bubbleslib;
 
 import android.app.Activity;
 import android.content.Context;

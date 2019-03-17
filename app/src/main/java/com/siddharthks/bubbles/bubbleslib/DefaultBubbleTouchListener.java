@@ -1,4 +1,4 @@
-package com.siddharthks.bubbleslib;
+package com.siddharthks.bubbles.bubbleslib;
 
 public class DefaultBubbleTouchListener implements BubbleTouchListener {
     @Override

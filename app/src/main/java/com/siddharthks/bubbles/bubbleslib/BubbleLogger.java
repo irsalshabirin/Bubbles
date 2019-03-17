@@ -1,8 +1,8 @@
-package com.siddharthks.bubbleslib;
+package com.siddharthks.bubbles.bubbleslib;
 
 import android.util.Log;
 
-public class BubbleLogger {
+public class BubbleLogger  {
 
     private boolean isDebugEnabled;
     private String tag;
