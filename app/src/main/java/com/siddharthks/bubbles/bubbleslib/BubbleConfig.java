@@ -7,6 +7,8 @@ import android.support.v4.content.ContextCompat;
 import android.view.Gravity;
 import android.view.View;
 
+import com.siddharthks.bubbles.R;
+
 public class BubbleConfig {
 
     private Drawable bubbleIcon;
@@ -39,8 +41,8 @@ public class BubbleConfig {
 
     public static Builder getDefaultBuilder(Context context) {
         return new Builder()
-                .bubbleIcon(ContextCompat.getDrawable(context, R.drawable.bubble_default_icon))
-                .removeBubbleIcon(ContextCompat.getDrawable(context, R.drawable.close_default_icon))
+                .bubbleIcon(ContextCompat.getDrawable(context, R.drawable.android_logo))
+                .removeBubbleIcon(ContextCompat.getDrawable(context, R.drawable.delete_bubble))
                 .bubbleIconDp(64)
                 .removeBubbleIconDp(64)
                 .paddingDp(4)

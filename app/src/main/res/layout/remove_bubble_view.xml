@@ -4,4 +4,4 @@
     android:layout_width="48dp"
     android:layout_height="48dp"
     android:contentDescription="@string/remove_bubble_description"
-    android:src="@drawable/close_default_icon"/>
+    android:src="@drawable/delete_bubble"/>

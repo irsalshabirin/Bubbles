@@ -13,7 +13,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:adjustViewBounds="true"
-            android:src="@drawable/cover"/>
+            android:src="@drawable/sample_image"/>
 
         <TextView
             android:layout_width="match_parent"

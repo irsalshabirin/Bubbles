@@ -1,7 +1,9 @@
 <resources>
     <string name="app_name">Bubbles</string>
-    <string name="text_placeholder" translatable="false">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sed dapibus lectus. Aenean tempor accumsan massa ut pharetra. Pellentesque ac risus quam. Nunc faucibus lectus ut tellus tempus, eu elementum ex facilisis. Quisque commodo mollis lorem nec viverra. Nulla dolor urna, faucibus ac neque a, tristique feugiat diam. Duis vel sem sed lectus consectetur interdum. Etiam sagittis velit vel molestie pharetra. Phasellus id sem id leo pretium volutpat. Nullam a lacus eget lectus lacinia feugiat sed ac mauris. Donec lobortis ut eros sit amet mollis.</string>
-    <string name="small_text_placeholder" translatable="false">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sed dapibus lectus. Aenean tempor accumsan massa ut pharetra.</string>
-    <string name="smaller_text_placeholder" translatable="false">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sed dapibus lectus.</string>
-    <string name="tiny_text_placeholder" translatable="false">Lorem ipsum dolor</string>
+    <string name="text_placeholder">OK. This is Epic!</string>
+    <string name="small_text_placeholder">OK. This is Epic!</string>
+    <string name="smaller_text_placeholder">OK. This is Epic!</string>
+    <string name="tiny_text_placeholder">Hey There!!</string>
+    <string name="remove_bubble_description">Remove Floating Bubble</string>
+    <string name="bubble_description">Floating Bubble</string>
 </resources>

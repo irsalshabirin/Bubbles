@@ -13,8 +13,8 @@ public class MainService extends BubbleService {
     protected BubbleConfig getConfig() {
         Context context = getApplicationContext();
         return new BubbleConfig.Builder()
-                .bubbleIcon(ContextCompat.getDrawable(context, R.drawable.web_icon))
-                .removeBubbleIcon(ContextCompat.getDrawable(context, R.drawable.close_default_icon))
+                .bubbleIcon(ContextCompat.getDrawable(context, R.drawable.android_logo))
+                .removeBubbleIcon(ContextCompat.getDrawable(context, R.drawable.delete_bubble))
                 .bubbleIconDp(54)
                 .expandableView(getInflater().inflate(R.layout.sample_view, null))
                 .removeBubbleIconDp(54)

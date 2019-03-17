@@ -10,6 +10,7 @@ import android.graphics.Point;
 import android.os.Build;
 import android.os.IBinder;
 import android.support.annotation.NonNull;
+import android.support.v7.widget.CardView;
 import android.util.DisplayMetrics;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -18,6 +19,8 @@ import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+
+import com.siddharthks.bubbles.R;
 
 public class BubbleService extends Service {
 
