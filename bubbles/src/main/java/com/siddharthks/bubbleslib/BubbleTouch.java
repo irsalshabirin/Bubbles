@@ -1,4 +1,4 @@
-package com.siddharthks.bubbles;
+package com.siddharthks.bubbleslib;
 
 import android.view.Gravity;
 import android.view.MotionEvent;

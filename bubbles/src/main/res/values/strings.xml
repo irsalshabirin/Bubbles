@@ -2,5 +2,5 @@
     <string name="app_name">Bubbles</string>
 
     <string name="remove_bubble_description">Remove Floating Bubble</string>
-    <string name="floating_bubble_description">Floating Bubble</string>
+    <string name="bubble_description">Floating Bubble</string>
 </resources>

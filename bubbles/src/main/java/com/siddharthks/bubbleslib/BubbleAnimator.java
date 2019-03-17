@@ -1,4 +1,4 @@
-package com.siddharthks.bubbles;
+package com.siddharthks.bubbleslib;
 
 import android.animation.ValueAnimator;
 import android.util.Log;

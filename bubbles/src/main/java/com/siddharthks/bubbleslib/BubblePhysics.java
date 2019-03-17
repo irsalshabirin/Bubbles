@@ -1,4 +1,4 @@
-package com.siddharthks.bubbles;
+package com.siddharthks.bubbleslib;
 
 import android.graphics.Point;
 import android.util.Log;
