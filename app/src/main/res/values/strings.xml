@@ -1,9 +1,0 @@
-<resources>
-    <string name="app_name">Bubbles</string>
-    <string name="text_placeholder">OK. This is Epic!</string>
-    <string name="small_text_placeholder">OK. This is Epic!</string>
-    <string name="smaller_text_placeholder">OK. This is Epic!</string>
-    <string name="tiny_text_placeholder">Hey There!!</string>
-    <string name="remove_bubble_description">Remove Floating Bubble</string>
-    <string name="bubble_description">Floating Bubble</string>
-</resources>
