@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">sampleapp</string>
+    <string name="text_placeholder" translatable="false">siddharth siddharth siddharth siddharth siddharth siddharth siddharth siddharth siddharth siddharth </string>
+    <string name="small_text_placeholder" translatable="false">siddharth siddharth siddharth siddharth siddharth </string>
+    <string name="smaller_text_placeholder" translatable="false">siddharth siddharth siddharth siddharth  </string>
+    <string name="tiny_text_placeholder" translatable="false">siddharth siddharth </string>
 </resources>
