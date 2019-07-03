@@ -1,4 +1,6 @@
 apply plugin: 'com.android.library'
+apply plugin: 'com.novoda.bintray-release'
+apply plugin: 'com.android.library'
 
 android {
     compileSdkVersion 28
@@ -32,4 +34,18 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+}
+
+publish {
+    def groupProjectID = 'com.siddharthks.bubbles'
+    def artifactProjectID = 'bubbles'
+    def publishVersionID = '1.0.0'
+
+    userOrg = 'ssiddharth2010'
+    repoName = 'Bubbles'
+    groupId = groupProjectID
+    artifactId = artifactProjectID
+    publishVersion = publishVersionID
+    desc = ' ⚡️A library for adding messenger style floating bubbles to any android application 📲'
+    website = 'https://github.com/siddharth2010/bubbles'
 }
