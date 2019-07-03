@@ -1,4 +1,7 @@
+[ ![Download](https://api.bintray.com/packages/ssiddharth2010/Bubbles/bubbles/images/download.svg) ](https://bintray.com/ssiddharth2010/Bubbles/bubbles/_latestVersion)
+
 # Bubbles
+
 
 Simple library for adding a Messenger style floating bubbles in your application!
 
