@@ -17,6 +17,14 @@ Simple library for adding a Messenger style floating bubbles in your application
 ## Usage
 
 ### Setup
+The Library is hosted via JCenter, and can be added as a dependency in your project.
+
+| Gradle | Maven 
+|:-------------|:-------------
+|compile 'com.siddharthks.bubbles:bubbles:1.0.0'|\<dependency\><br>&nbsp;&nbsp;\<groupId\>com.siddharthks.bubbles\</groupId\><br>&nbsp;&nbsp;\<artifactId\>bubbles\</artifactId\><br>&nbsp;&nbsp;\<version\>1.0.0\</version\><br>&nbsp;&nbsp;\<type\>pom\</type\><br>\</dependency\>
+
+
+### Interface
 Let's start with a simple setup for the Service
 ```java
 public class FloatingService extends FloatingBubbleService {
