@@ -2,20 +2,13 @@
 
 # Bubbles
 
-
 Simple library for adding a Messenger style floating bubbles in your application!
 
 ## Screenshots:
 
-#### Initial State
-| Screen Overlay Permission| The Bubble per se | Just Before Delete    
-| :-------------:        |:-------------:| :------------------:|
-| ![The Bubble per se](https://github.com/siddharth2010/Bubbles/blob/master/screenshots/default_state.png)|![On dragging the bubble](https://github.com/siddharth2010/Bubbles/blob/master/screenshots/active_state.png)|![On dragging the bubble](https://github.com/siddharth2010/Bubbles/blob/master/screenshots/on_close.png)
-
-#### On Tapping
-| Home Screen | App Menu | Over Another App    
-| :-------------:        |:-------------:| :------------------:|
-| ![Home Screen](https://github.com/siddharth2010/Bubbles/blob/master/screenshots/home_screen.png)|![App Menu](https://github.com/siddharth2010/Bubbles/blob/master/screenshots/app_menu.png)|![Over Another App](https://github.com/siddharth2010/Bubbles/blob/master/screenshots/on_another_app.png)
+| App Permissions | The Bubble | Bubble Tapped | Just Before Delete 
+|:-------------:|:-------------:|:-------------:|:-------------:
+| ![App Permissions](https://github.com/siddharth2010/Bubbles/blob/master/screenshots/app_permission.png)|![The Bubble](https://github.com/siddharth2010/Bubbles/blob/master/screenshots/bubble_overlay.png)|![Bubble Tapped](https://github.com/siddharth2010/Bubbles/blob/master/screenshots/bubble_open.png)| ![Just Before Delete](https://github.com/siddharth2010/Bubbles/blob/master/screenshots/bubble_close.png)
 
 ## Package Structure of the Library
 
