@@ -19,7 +19,7 @@ Simple library for adding a Messenger style floating bubbles in your application
 
 ## Package Structure of the Library
 
-![Package Structure](https://github.com/siddharth2010/Bubbles/blob/master/screenshots/Screen%20Shot%202019-03-17%20at%203.16.13%20PM.png)
+![Package Structure](https://github.com/siddharth2010/Bubbles/blob/master/screenshots/package_structure.png)
 
 ## Usage
 
