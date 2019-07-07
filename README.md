@@ -2,7 +2,7 @@
 
 # Bubbles
 
-Simple library for adding a Messenger style floating bubbles in your application!
+Bubbles is an Android library to provide a backwards compatible [Android Q (API 29) Bubble Experience](https://developer.android.com/preview/features/bubbles) for all android devices (API 16+). 
 
 ## Screenshots:
 
