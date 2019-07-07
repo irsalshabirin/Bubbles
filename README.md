@@ -1,4 +1,4 @@
-[ ![Download](https://api.bintray.com/packages/ssiddharth2010/Bubbles/bubbles/images/download.svg) ](https://bintray.com/ssiddharth2010/Bubbles/bubbles/_latestVersion)
+[![License: MIT](https://img.shields.io/badge/License-MIT-Green.svg)](https://opensource.org/licenses/MIT) [ ![Download](https://api.bintray.com/packages/ssiddharth2010/Bubbles/bubbles/images/download.svg) ](https://bintray.com/ssiddharth2010/Bubbles/bubbles/_latestVersion)
 
 # Bubbles
 
