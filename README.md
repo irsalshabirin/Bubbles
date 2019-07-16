@@ -1,3 +1,5 @@
+<p align="center"><img src="/logo/logomark-horizontal.png"></p>
+
 [![License: MIT](https://img.shields.io/badge/License-MIT-Green.svg)](https://opensource.org/licenses/MIT) [ ![Download](https://api.bintray.com/packages/ssiddharth2010/Bubbles/bubbles/images/download.svg) ](https://bintray.com/ssiddharth2010/Bubbles/bubbles/_latestVersion) [![Build Status](https://travis-ci.com/siddharth2010/Bubbles.svg?branch=master)](https://travis-ci.com/siddharth2010/Bubbles)
 
 # Bubbles
