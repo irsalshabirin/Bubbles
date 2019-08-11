@@ -26,6 +26,7 @@ The Library is hosted via JCenter, and can be added as a dependency in your proj
 |compile 'com.siddharthks.bubbles:bubbles:1.0.0'|\<dependency\><br>&nbsp;&nbsp;\<groupId\>com.siddharthks.bubbles\</groupId\><br>&nbsp;&nbsp;\<artifactId\>bubbles\</artifactId\><br>&nbsp;&nbsp;\<version\>1.0.0\</version\><br>&nbsp;&nbsp;\<type\>pom\</type\><br>\</dependency\>
 
 
+
 ### Interface
 Let's start with a simple setup for the Service
 ```java
@@ -110,3 +111,6 @@ setState(true);
 // To compress
 setState(false);
 ```
+
+## Acknowledgements
+Thanks to [@Tobaloidee](https://github.com/Tobaloidee) for the awesome logo!
