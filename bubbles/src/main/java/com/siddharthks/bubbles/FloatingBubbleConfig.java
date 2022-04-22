@@ -6,7 +6,6 @@ import android.graphics.drawable.Drawable;
 import android.view.Gravity;
 import android.view.View;
 import android.support.v4.content.ContextCompat;
-import android.widget.TextView;
 
 public class FloatingBubbleConfig {
     private Drawable bubbleIcon;
@@ -17,6 +16,8 @@ public class FloatingBubbleConfig {
     private float removeBubbleAlpha;
     private int expandableColor;
     private int triangleColor;
+    private int notificationBackgroundColor;
+    private int notificationCounter;
     private int gravity;
     private int paddingDp;
     private int borderRadiusDp;
@@ -30,6 +31,8 @@ public class FloatingBubbleConfig {
         removeBubbleIconDp = builder.removeBubbleIconDp;
         expandableColor = builder.expandableColor;
         triangleColor = builder.triangleColor;
+        notificationBackgroundColor = builder.notificationBackgroundColor;
+        notificationCounter = builder.notificationCounter;
         gravity = builder.gravity;
         paddingDp = builder.paddingDp;
         borderRadiusDp = builder.borderRadiusDp;
@@ -83,6 +86,10 @@ public class FloatingBubbleConfig {
         return triangleColor;
     }
 
+    public int getNotificationBackgroundColor() { return notificationBackgroundColor; }
+
+    public int getNotificationCounter(){return notificationCounter;}
+
     public int getGravity() {
         return gravity;
     }
@@ -111,6 +118,8 @@ public class FloatingBubbleConfig {
         private int removeBubbleIconDp = 64;
         private int expandableColor = Color.WHITE;
         private int triangleColor = Color.WHITE;
+        private int notificationBackgroundColor = Color.RED;
+        private int notificationCounter = 0;
         private int gravity = Gravity.END;
         private int paddingDp = 4;
         private int borderRadiusDp = 4;
@@ -147,6 +156,16 @@ public class FloatingBubbleConfig {
 
         public Builder triangleColor(int val) {
             triangleColor = val;
+            return this;
+        }
+
+        public Builder notificationBackgroundColor(int val) {
+            notificationBackgroundColor = val;
+            return this;
+        }
+
+        public Builder notificationCounter(int val){
+            notificationCounter = val;
             return this;
         }
 

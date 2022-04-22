@@ -17,8 +17,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 public class FloatingBubbleService extends Service {
 
@@ -173,8 +175,14 @@ public class FloatingBubbleService extends Service {
             ((ImageView) removeBubbleView).setImageDrawable(config.getRemoveBubbleIcon());
         }
         if (config.getBubbleIcon() != null) {
-            ((ImageView) bubbleView).setImageDrawable(config.getBubbleIcon());
+            ((ImageView) bubbleView.findViewById(R.id.bubble_background)).setImageDrawable(config.getBubbleIcon());
         }
+
+        ImageView notificationBackground = bubbleView.findViewById(R.id.notification_background);
+        notificationBackground.setBackgroundColor(config.getNotificationBackgroundColor());
+
+        TextView counterNotification = bubbleView.findViewById(R.id.counter_notification);
+        counterNotification.setText(config.getNotificationCounter());
 
         CardView card = (CardView) expandableView.findViewById(R.id.expandableViewCard);
         card.setRadius(dpToPixels(config.getBorderRadiusDp()));
@@ -318,6 +326,32 @@ public class FloatingBubbleService extends Service {
      */
     protected void setState(boolean expanded) {
         touch.setState(expanded);
+    }
+
+    /**
+     * Increase the counter in the notification view
+     * @param amount the units to increase the counter
+     */
+    protected void increaseNotificationCounterBy(int amount){
+        final TextView notificationCounter = bubbleView.findViewById(R.id.counter_notification);
+        final String lastCounter = notificationCounter.getText().toString();
+        final int counter = Integer.parseInt(lastCounter) + amount;
+        if(counter > 0)
+            bubbleView.findViewById(R.id.notification_view).setVisibility(View.VISIBLE);
+        notificationCounter.setText(counter);
+    }
+
+    /**
+     * Decrease the counter in the notification view
+     * @param amount the units to decrease the counter
+     */
+    protected void decreaseNotificationCounterBy(int amount){
+        final TextView notificationCounter = bubbleView.findViewById(R.id.counter_notification);
+        final String lastCounter = notificationCounter.getText().toString();
+        final int counter = Integer.parseInt(lastCounter) - amount;
+        if(counter < 1)
+            bubbleView.findViewById(R.id.notification_view).setVisibility(View.GONE);
+        notificationCounter.setText(counter);
     }
 
     /**

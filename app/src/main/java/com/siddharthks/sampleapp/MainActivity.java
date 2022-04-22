@@ -15,11 +15,14 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         FloatingBubblePermissions.startPermissionRequest(this);
-        View startBubble = findViewById(R.id.start_bubble);
+        final View startBubble = findViewById(R.id.start_bubble);
         startBubble.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startService(new Intent(getApplicationContext(), SimpleService.class));
+                final Intent intent = new Intent(getApplicationContext(), SimpleService.class);
+                intent.setAction("increase");
+                startService(intent);
             }
         });
     }

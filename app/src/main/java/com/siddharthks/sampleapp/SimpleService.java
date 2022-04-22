@@ -1,6 +1,8 @@
 package com.siddharthks.sampleapp;
 
+import android.app.Service;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.support.v4.content.ContextCompat;
 import android.view.Gravity;
@@ -8,7 +10,24 @@ import android.view.Gravity;
 import com.siddharthks.bubbles.FloatingBubbleConfig;
 import com.siddharthks.bubbles.FloatingBubbleService;
 
+import java.util.Objects;
+
 public class SimpleService extends FloatingBubbleService {
+
+    @Override
+    public int onStartCommand(Intent intent, int flags, int startId) {
+        if (Objects.equals(intent.getAction(), "increase")){
+            super.increaseNotificationCounterBy(1);
+            return Service.START_STICKY;
+        }
+        else if (Objects.equals(intent.getAction(), "decrease")){
+            super.increaseNotificationCounterBy(1);
+            return Service.START_STICKY;
+        }
+        else
+            return super.onStartCommand(intent, flags, startId);
+    }
+
     @Override
     protected FloatingBubbleConfig getConfig() {
         Context context = getApplicationContext();
