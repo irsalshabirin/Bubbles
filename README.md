@@ -87,6 +87,18 @@ public class FloatingService extends FloatingBubbleService {
 
         // Set the alpha value for the remove bubble icon
         .removeBubbleAlpha(0.75f)
+        
+        // Enable and disable the bubble movement on touch
+        .moveBubbleOnTouch(true)
+        
+        // Set the time for a touch event
+        .touchClickTime(250)
+        
+        // Set the notification circle background color
+        .notificationBackgroundColor(Color.RED)
+        
+        // Set the start value for the notification counter
+        .notificationCounter(0)
 
         // Building
         .build();
