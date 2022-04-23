@@ -23,6 +23,7 @@ public class FloatingBubbleTouch implements View.OnTouchListener {
     private FloatingBubbleConfig config;
     private int padding;
     private int marginBottom;
+    private boolean moveBubbleOnTouch;
 
     private WindowManager.LayoutParams bubbleParams;
     private WindowManager.LayoutParams removeBubbleParams;
@@ -48,6 +49,7 @@ public class FloatingBubbleTouch implements View.OnTouchListener {
         sizeY = builder.sizeY;
         sizeX = builder.sizeX;
         marginBottom = builder.marginBottom;
+        moveBubbleOnTouch = builder.moveBubbleOnTouch;
 
         bubbleParams = (WindowManager.LayoutParams) bubbleView.getLayoutParams();
         removeBubbleParams = (WindowManager.LayoutParams) removeBubbleView.getLayoutParams();
@@ -226,7 +228,8 @@ public class FloatingBubbleTouch implements View.OnTouchListener {
                 break;
         }
 
-        animator.animate(x, y);
+        if(config.isMoveBubbleOnTouchEnabled())
+            animator.animate(x, y);
         expandableView.setVisibility(View.VISIBLE);
         expandableParams.y = y + bubbleView.getWidth();
         windowManager.updateViewLayout(expandableView, expandableParams);
@@ -246,6 +249,7 @@ public class FloatingBubbleTouch implements View.OnTouchListener {
         private FloatingBubbleConfig config;
         private int padding;
         private int marginBottom;
+        private boolean moveBubbleOnTouch;
 
         public Builder() {
         }
@@ -316,6 +320,11 @@ public class FloatingBubbleTouch implements View.OnTouchListener {
 
         public Builder marginBottom(int val) {
             marginBottom = val;
+            return this;
+        }
+
+        public Builder moveBubbleOnTouch(boolean val) {
+            moveBubbleOnTouch = val;
             return this;
         }
     }

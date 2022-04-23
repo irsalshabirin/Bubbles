@@ -22,6 +22,7 @@ public class FloatingBubbleConfig {
     private int paddingDp;
     private int borderRadiusDp;
     private boolean physicsEnabled;
+    private boolean moveBubbleOnTouch;
 
     private FloatingBubbleConfig(Builder builder) {
         bubbleIcon = builder.bubbleIcon;
@@ -38,6 +39,7 @@ public class FloatingBubbleConfig {
         borderRadiusDp = builder.borderRadiusDp;
         physicsEnabled = builder.physicsEnabled;
         removeBubbleAlpha = builder.removeBubbleAlpha;
+        moveBubbleOnTouch = builder.moveBubbleOnTouch;
     }
 
     public static Builder getDefaultBuilder(Context context) {
@@ -110,6 +112,10 @@ public class FloatingBubbleConfig {
         return removeBubbleAlpha;
     }
 
+    public boolean isMoveBubbleOnTouchEnabled(){
+       return moveBubbleOnTouch;
+    }
+
     public static final class Builder {
         private Drawable bubbleIcon;
         private Drawable removeBubbleIcon;
@@ -125,6 +131,7 @@ public class FloatingBubbleConfig {
         private int borderRadiusDp = 4;
         private float removeBubbleAlpha = 1.0f;
         private boolean physicsEnabled = true;
+        private boolean moveBubbleOnTouch = true;
 
         public Builder() {
         }
@@ -204,6 +211,11 @@ public class FloatingBubbleConfig {
         public Builder physicsEnabled(boolean val) {
             physicsEnabled = val;
             return this;
+        }
+
+        public Builder moveBubbleOnTouch(boolean val){
+           moveBubbleOnTouch = val;
+           return this;
         }
 
         public Builder removeBubbleAlpha(float val) {

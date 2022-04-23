@@ -15,15 +15,15 @@
 
     <FrameLayout
         android:id="@+id/notification_view"
-        android:layout_width="20dp"
-        android:layout_height="20dp"
+        android:layout_width="15dp"
+        android:layout_height="15dp"
         android:visibility="visible"
         tools:visibility="visible">
 
         <ImageView
             android:id="@+id/notification_background"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:src="@drawable/rounded_notification_background" />
 
         <TextView

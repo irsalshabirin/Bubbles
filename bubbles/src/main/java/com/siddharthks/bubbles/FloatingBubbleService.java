@@ -1,6 +1,5 @@
 package com.siddharthks.bubbles;
 
-import android.annotation.SuppressLint;
 import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
@@ -19,7 +18,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
-import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -183,10 +181,10 @@ public class FloatingBubbleService extends Service {
         ImageView notificationBackground = bubbleView.findViewById(R.id.notification_background);
         notificationBackground.setImageDrawable(ContextCompat.getDrawable(getContext(), R.drawable.rounded_notification_background));
         notificationBackground.setColorFilter(config.getNotificationBackgroundColor());
-/*
+
         TextView counterNotification = bubbleView.findViewById(R.id.counter_notification);
-        counterNotification.setText(config.getNotificationCounter());
- */
+        counterNotification.setText(Integer.toString(config.getNotificationCounter()));
+
         CardView card = (CardView) expandableView.findViewById(R.id.expandableViewCard);
         card.setRadius(dpToPixels(config.getBorderRadiusDp()));
 
@@ -248,6 +246,7 @@ public class FloatingBubbleService extends Service {
                 .config(config)
                 .marginBottom(getExpandableViewBottomMargin())
                 .padding(dpToPixels(config.getPaddingDp()))
+                .moveBubbleOnTouch(config.isMoveBubbleOnTouchEnabled())
                 .build();
 
         bubbleView.setOnTouchListener(touch);
