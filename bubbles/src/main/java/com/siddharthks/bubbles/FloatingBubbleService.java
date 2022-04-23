@@ -178,12 +178,16 @@ public class FloatingBubbleService extends Service {
             ((ImageView) bubbleView.findViewById(R.id.bubble_background)).setImageDrawable(config.getBubbleIcon());
         }
 
+        // Setting the notification config
         ImageView notificationBackground = bubbleView.findViewById(R.id.notification_background);
         notificationBackground.setImageDrawable(ContextCompat.getDrawable(getContext(), R.drawable.rounded_notification_background));
         notificationBackground.setColorFilter(config.getNotificationBackgroundColor());
-
         TextView counterNotification = bubbleView.findViewById(R.id.counter_notification);
         counterNotification.setText(Integer.toString(config.getNotificationCounter()));
+
+        // Setting the expansion config
+        ImageView expansionIcon = bubbleView.findViewById(R.id.bubble_expansion);
+        expansionIcon.setImageDrawable(config.getBubbleExpansionIcon());
 
         CardView card = (CardView) expandableView.findViewById(R.id.expandableViewCard);
         card.setRadius(dpToPixels(config.getBorderRadiusDp()));

@@ -10,6 +10,7 @@ import android.support.v4.content.ContextCompat;
 public class FloatingBubbleConfig {
     private Drawable bubbleIcon;
     private Drawable removeBubbleIcon;
+    private Drawable bubbleExpansionIcon;
     private View expandableView;
     private int bubbleIconDp;
     private int removeBubbleIconDp;
@@ -28,6 +29,7 @@ public class FloatingBubbleConfig {
     private FloatingBubbleConfig(Builder builder) {
         bubbleIcon = builder.bubbleIcon;
         removeBubbleIcon = builder.removeBubbleIcon;
+        bubbleExpansionIcon = builder.bubbleExpansionIcon;
         expandableView = builder.expandableView;
         bubbleIconDp = builder.bubbleIconDp;
         removeBubbleIconDp = builder.removeBubbleIconDp;
@@ -68,6 +70,10 @@ public class FloatingBubbleConfig {
 
     public Drawable getRemoveBubbleIcon() {
         return removeBubbleIcon;
+    }
+
+    public Drawable getBubbleExpansionIcon() {
+        return bubbleExpansionIcon;
     }
 
     public View getExpandableView() {
@@ -125,6 +131,7 @@ public class FloatingBubbleConfig {
     public static final class Builder {
         private Drawable bubbleIcon;
         private Drawable removeBubbleIcon;
+        private Drawable bubbleExpansionIcon;
         private View expandableView;
         private int bubbleIconDp = 64;
         private int removeBubbleIconDp = 64;
@@ -150,6 +157,11 @@ public class FloatingBubbleConfig {
 
         public Builder removeBubbleIcon(Drawable val) {
             removeBubbleIcon = val;
+            return this;
+        }
+
+        public Builder bubbleExpansionIcon(Drawable val) {
+            bubbleExpansionIcon = val;
             return this;
         }
 

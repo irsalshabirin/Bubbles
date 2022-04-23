@@ -49,6 +49,7 @@ public class SimpleService extends FloatingBubbleService {
                 .physicsEnabled(true)
                 .moveBubbleOnTouch(false)
                 .touchClickTime(100)
+                .bubbleExpansionIcon(ContextCompat.getDrawable(context, com.siddharthks.bubbles.R.drawable.triangle_icon))
                 .build();
     }
 }
