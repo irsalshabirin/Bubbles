@@ -26,6 +26,7 @@ public class SimpleService extends FloatingBubbleService {
             case "decrease":
                 super.decreaseNotificationCounterBy(1);
                 super.restoreBubbleIcon();
+                toggleExpansionVisibility();
                 break;
         }
         return START_STICKY;

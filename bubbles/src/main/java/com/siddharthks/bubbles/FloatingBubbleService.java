@@ -168,7 +168,6 @@ public class FloatingBubbleService extends Service {
         bubbleParams = getDefaultWindowParams();
         bubbleParams.gravity = Gravity.TOP | Gravity.START;
         bubbleParams.width = iconSize;
-        bubbleParams.height = iconSize;
         windowManager.addView(bubbleView, bubbleParams);
 
         // Setting the configuration
@@ -330,6 +329,38 @@ public class FloatingBubbleService extends Service {
      */
     protected void setState(boolean expanded) {
         touch.setState(expanded);
+    }
+
+    /**
+     * Toggles the visibility of the decorator
+     */
+    protected void toggleExpansionVisibility(){
+        final ImageView expansionImage = bubbleView.findViewById(R.id.bubble_expansion);
+        if (expansionImage.getVisibility() == View.VISIBLE)
+            expansionImage.setVisibility(View.GONE);
+        else
+            expansionImage.setVisibility(View.VISIBLE);
+    }
+
+    /**
+     * Changes the decorator visibility
+     * @param setVisible The new decorator visibility
+     */
+    protected void setExpansionVisibility(boolean setVisible){
+        final ImageView expansionImage = bubbleView.findViewById(R.id.bubble_expansion);
+        if(setVisible)
+            expansionImage.setVisibility(View.VISIBLE);
+        else
+            expansionImage.setVisibility(View.GONE);
+    }
+
+    /**
+    * Changes the expansion image listener
+    * @param listener The listener for the expansion image view
+    */
+    protected void setExpansionListener(View.OnClickListener listener){
+        final ImageView expansionImage = bubbleView.findViewById(R.id.bubble_expansion);
+        expansionImage.setOnClickListener(listener);
     }
 
     /**
