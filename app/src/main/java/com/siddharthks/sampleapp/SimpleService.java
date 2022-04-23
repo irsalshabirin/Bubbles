@@ -21,9 +21,11 @@ public class SimpleService extends FloatingBubbleService {
         switch (intent.getAction()){
             case "increase":
                 super.increaseNotificationCounterBy(1);
+                super.updateBubbleIcon(ContextCompat.getDrawable(getContext(), R.drawable.close_default_icon));
                 break;
             case "decrease":
                 super.decreaseNotificationCounterBy(1);
+                super.restoreBubbleIcon();
                 break;
         }
         return START_STICKY;

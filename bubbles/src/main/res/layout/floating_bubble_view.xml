@@ -17,7 +17,7 @@
         android:id="@+id/notification_view"
         android:layout_width="15dp"
         android:layout_height="15dp"
-        android:visibility="visible"
+        android:visibility="gone"
         tools:visibility="visible">
 
         <ImageView

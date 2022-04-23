@@ -7,6 +7,7 @@ import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.graphics.PixelFormat;
 import android.graphics.Point;
+import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.IBinder;
 import android.support.annotation.NonNull;
@@ -355,6 +356,23 @@ public class FloatingBubbleService extends Service {
         if(counter < 1)
             bubbleView.findViewById(R.id.notification_view).setVisibility(View.GONE);
         notificationCounter.setText(Integer.toString(counter));
+    }
+
+    /**
+     * Changes the bubble icon and keeps the original
+     * @param updatedIcon The new bubble icon
+     */
+    protected void updateBubbleIcon(Drawable updatedIcon){
+       final ImageView bubbleBackground = bubbleView.findViewById(R.id.bubble_background);
+       bubbleBackground.setImageDrawable(updatedIcon);
+    }
+
+    /*
+     * Restores the bubble icon to the original icon
+     */
+    protected void restoreBubbleIcon(){
+        final ImageView bubbleBackground = bubbleView.findViewById(R.id.bubble_background);
+        bubbleBackground.setImageDrawable(config.getBubbleIcon());
     }
 
     /**
