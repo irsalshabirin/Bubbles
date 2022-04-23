@@ -20,8 +20,24 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startService(new Intent(getApplicationContext(), SimpleService.class));
-                final Intent intent = new Intent(getApplicationContext(), SimpleService.class);
+            }
+        });
+
+        final View increaseNotification = findViewById(R.id.increase_button);
+        increaseNotification.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), SimpleService.class);
                 intent.setAction("increase");
+                startService(intent);
+            }
+        });
+        final View decreaseNotification = findViewById(R.id.decrease_button);
+        decreaseNotification.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), SimpleService.class);
+                intent.setAction("decrease");
                 startService(intent);
             }
         });

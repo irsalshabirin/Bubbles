@@ -1,5 +1,6 @@
 package com.siddharthks.bubbles;
 
+import android.annotation.SuppressLint;
 import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
@@ -10,6 +11,7 @@ import android.graphics.Point;
 import android.os.Build;
 import android.os.IBinder;
 import android.support.annotation.NonNull;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.CardView;
 import android.util.DisplayMetrics;
 import android.view.Gravity;
@@ -179,11 +181,12 @@ public class FloatingBubbleService extends Service {
         }
 
         ImageView notificationBackground = bubbleView.findViewById(R.id.notification_background);
-        notificationBackground.setBackgroundColor(config.getNotificationBackgroundColor());
-
+        notificationBackground.setImageDrawable(ContextCompat.getDrawable(getContext(), R.drawable.rounded_notification_background));
+        notificationBackground.setColorFilter(config.getNotificationBackgroundColor());
+/*
         TextView counterNotification = bubbleView.findViewById(R.id.counter_notification);
         counterNotification.setText(config.getNotificationCounter());
-
+ */
         CardView card = (CardView) expandableView.findViewById(R.id.expandableViewCard);
         card.setRadius(dpToPixels(config.getBorderRadiusDp()));
 
@@ -338,7 +341,7 @@ public class FloatingBubbleService extends Service {
         final int counter = Integer.parseInt(lastCounter) + amount;
         if(counter > 0)
             bubbleView.findViewById(R.id.notification_view).setVisibility(View.VISIBLE);
-        notificationCounter.setText(counter);
+        notificationCounter.setText(Integer.toString(counter));
     }
 
     /**
@@ -351,7 +354,7 @@ public class FloatingBubbleService extends Service {
         final int counter = Integer.parseInt(lastCounter) - amount;
         if(counter < 1)
             bubbleView.findViewById(R.id.notification_view).setVisibility(View.GONE);
-        notificationCounter.setText(counter);
+        notificationCounter.setText(Integer.toString(counter));
     }
 
     /**
