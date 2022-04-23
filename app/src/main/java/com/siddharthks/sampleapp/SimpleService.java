@@ -21,11 +21,17 @@ public class SimpleService extends FloatingBubbleService {
         switch (intent.getAction()){
             case "increase":
                 super.increaseNotificationCounterBy(1);
-                super.updateBubbleIcon(ContextCompat.getDrawable(getContext(), R.drawable.close_default_icon));
                 break;
             case "decrease":
                 super.decreaseNotificationCounterBy(1);
+                break;
+            case "updateIcon":
+                super.updateBubbleIcon(ContextCompat.getDrawable(getContext(), R.drawable.close_default_icon));
+                break;
+            case "restoreIcon":
                 super.restoreBubbleIcon();
+                break;
+            case "toggleExpansion":
                 toggleExpansionVisibility();
                 break;
         }
@@ -38,7 +44,7 @@ public class SimpleService extends FloatingBubbleService {
         return new FloatingBubbleConfig.Builder()
                 .bubbleIcon(ContextCompat.getDrawable(context, R.drawable.web_icon))
                 .removeBubbleIcon(ContextCompat.getDrawable(context, com.siddharthks.bubbles.R.drawable.close_default_icon))
-                .bubbleIconDp(90)
+                .bubbleIconDp(54)
                 .expandableView(getInflater().inflate(R.layout.sample_view, null))
                 .removeBubbleIconDp(54)
                 .paddingDp(4)

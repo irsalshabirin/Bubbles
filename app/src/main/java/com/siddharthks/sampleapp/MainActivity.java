@@ -41,5 +41,32 @@ public class MainActivity extends AppCompatActivity {
                 startService(intent);
             }
         });
+        final View updateIcon = findViewById(R.id.change_icon_button);
+        updateIcon.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), SimpleService.class);
+                intent.setAction("updateIcon");
+                startService(intent);
+            }
+        });
+        final View restoreIcon = findViewById(R.id.restore_icon_button);
+        restoreIcon.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), SimpleService.class);
+                intent.setAction("restoreIcon");
+                startService(intent);
+            }
+        });
+        final View toggleExpansion = findViewById(R.id.toggle_expansion_button);
+        toggleExpansion.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), SimpleService.class);
+                intent.setAction("toggleExpansion");
+                startService(intent);
+            }
+        });
     }
 }

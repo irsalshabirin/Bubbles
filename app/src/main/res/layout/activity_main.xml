@@ -18,14 +18,32 @@
 
     <Button
         android:id="@+id/increase_button"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Button" />
+        android:text="INCREASE NOTIFICATIONS" />
 
     <Button
         android:id="@+id/decrease_button"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Button" />
+        android:text="DECREASE NOTIFICATIONS" />
+
+    <Button
+        android:id="@+id/change_icon_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="CHANGE ICON" />
+
+    <Button
+        android:id="@+id/restore_icon_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="RESTORE ICON" />
+
+    <Button
+        android:id="@+id/toggle_expansion_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TOGGLE EXPANSION" />
 
 </LinearLayout>
