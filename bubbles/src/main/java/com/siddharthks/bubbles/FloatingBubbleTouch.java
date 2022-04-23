@@ -7,7 +7,6 @@ import android.view.WindowManager;
 
 public class FloatingBubbleTouch implements View.OnTouchListener {
 
-    private static final int TOUCH_CLICK_TIME = 250;
     private static final float EXPANSION_FACTOR = 1.25f;
 
     private int sizeX;
@@ -23,6 +22,7 @@ public class FloatingBubbleTouch implements View.OnTouchListener {
     private FloatingBubbleConfig config;
     private int padding;
     private int marginBottom;
+    private int touchClickTime;
     private boolean moveBubbleOnTouch;
 
     private WindowManager.LayoutParams bubbleParams;
@@ -50,6 +50,7 @@ public class FloatingBubbleTouch implements View.OnTouchListener {
         sizeX = builder.sizeX;
         marginBottom = builder.marginBottom;
         moveBubbleOnTouch = builder.moveBubbleOnTouch;
+        touchClickTime = builder.touchClickTime;
 
         bubbleParams = (WindowManager.LayoutParams) bubbleView.getLayoutParams();
         removeBubbleParams = (WindowManager.LayoutParams) removeBubbleView.getLayoutParams();
@@ -81,7 +82,7 @@ public class FloatingBubbleTouch implements View.OnTouchListener {
             case MotionEvent.ACTION_MOVE:
                 lastTouchTime = System.currentTimeMillis();
                 moveBubbleView(motionEvent);
-                if (lastTouchTime - touchStartTime > TOUCH_CLICK_TIME) {
+                if (lastTouchTime - touchStartTime > touchClickTime) {
                     compressView();
                     showRemoveBubble(View.VISIBLE);
                 }
@@ -98,7 +99,7 @@ public class FloatingBubbleTouch implements View.OnTouchListener {
             case MotionEvent.ACTION_CANCEL:
                 showRemoveBubble(View.GONE);
                 lastTouchTime = System.currentTimeMillis();
-                if (lastTouchTime - touchStartTime < TOUCH_CLICK_TIME) {
+                if (lastTouchTime - touchStartTime < touchClickTime) {
                     toggleView();
                     if (listener != null) {
                         listener.onTap(expanded);
@@ -111,7 +112,7 @@ public class FloatingBubbleTouch implements View.OnTouchListener {
                     if (listener != null) {
                         listener.onUp(motionEvent.getRawX(), motionEvent.getRawY());
                     }
-                    if (!isRemoved && sendEventToPhysics()) {
+                    if (!isRemoved && sendEventToPhysics()){
                         physics.onUp(motionEvent.getRawX(), motionEvent.getRawY());
                     }
                 }
@@ -250,6 +251,7 @@ public class FloatingBubbleTouch implements View.OnTouchListener {
         private int padding;
         private int marginBottom;
         private boolean moveBubbleOnTouch;
+        private int touchClickTime;
 
         public Builder() {
         }
@@ -325,6 +327,11 @@ public class FloatingBubbleTouch implements View.OnTouchListener {
 
         public Builder moveBubbleOnTouch(boolean val) {
             moveBubbleOnTouch = val;
+            return this;
+        }
+
+        public Builder touchClickTime(int val){
+            touchClickTime = val;
             return this;
         }
     }

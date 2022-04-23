@@ -247,6 +247,7 @@ public class FloatingBubbleService extends Service {
                 .marginBottom(getExpandableViewBottomMargin())
                 .padding(dpToPixels(config.getPaddingDp()))
                 .moveBubbleOnTouch(config.isMoveBubbleOnTouchEnabled())
+                .touchClickTime(config.getTouchClickTime())
                 .build();
 
         bubbleView.setOnTouchListener(touch);

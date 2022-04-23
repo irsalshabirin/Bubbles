@@ -21,6 +21,7 @@ public class FloatingBubbleConfig {
     private int gravity;
     private int paddingDp;
     private int borderRadiusDp;
+    private int touchClickTime;
     private boolean physicsEnabled;
     private boolean moveBubbleOnTouch;
 
@@ -37,6 +38,7 @@ public class FloatingBubbleConfig {
         gravity = builder.gravity;
         paddingDp = builder.paddingDp;
         borderRadiusDp = builder.borderRadiusDp;
+        touchClickTime = builder.touchClickTime;
         physicsEnabled = builder.physicsEnabled;
         removeBubbleAlpha = builder.removeBubbleAlpha;
         moveBubbleOnTouch = builder.moveBubbleOnTouch;
@@ -100,6 +102,10 @@ public class FloatingBubbleConfig {
         return paddingDp;
     }
 
+    public int getTouchClickTime(){
+       return touchClickTime;
+    }
+
     public boolean isPhysicsEnabled() {
         return physicsEnabled;
     }
@@ -129,6 +135,7 @@ public class FloatingBubbleConfig {
         private int gravity = Gravity.END;
         private int paddingDp = 4;
         private int borderRadiusDp = 4;
+        private int touchClickTime = 250;
         private float removeBubbleAlpha = 1.0f;
         private boolean physicsEnabled = true;
         private boolean moveBubbleOnTouch = true;
@@ -206,6 +213,11 @@ public class FloatingBubbleConfig {
         public Builder borderRadiusDp(int val) {
             borderRadiusDp = val;
             return this;
+        }
+
+        public Builder touchClickTime(int val){
+           touchClickTime = val;
+           return this;
         }
 
         public Builder physicsEnabled(boolean val) {
