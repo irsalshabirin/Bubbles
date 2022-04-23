@@ -87,6 +87,21 @@ public class FloatingService extends FloatingBubbleService {
 
         // Set the alpha value for the remove bubble icon
         .removeBubbleAlpha(0.75f)
+        
+        // Enable and disable the bubble movement on touch
+        .moveBubbleOnTouch(true)
+        
+        // Set the time for a touch event
+        .touchClickTime(250)
+        
+        // Set the notification circle background color
+        .notificationBackgroundColor(Color.RED)
+        
+        // Set the start value for the notification counter
+        .notificationCounter(0)
+        
+        // Activates a expansion icon in the bubble
+        .bubbleExpansionIcon(expansionIconDrawable)
 
         // Building
         .build();
@@ -110,6 +125,39 @@ setState(true);
 
 // To compress
 setState(false);
+```
+
+You can change the notification counter at runtime by
+```java
+// To increase
+increaseNotificationCounterBy(1);
+
+// To decrease
+decreaseNotificationCounterBy(1);
+```
+
+You can change the bubble icon at runtime by
+```java
+// To update the icon
+updateBubbleIcon(drawableResource);
+
+// To restore to the default build bubble icon
+restoreBubbleIcon();
+```
+
+If you activate the expansion icon, you can config the expansion at runtime by
+```java
+// To show
+setExpansionVisibility(true)
+
+// To hide
+setExpansionVisibility(false)
+
+// To toggle
+toggleExpansionVisibility()
+
+// To set a listener in the icon
+setExpansionListener(onClickListener)
 ```
 
 ## Acknowledgements

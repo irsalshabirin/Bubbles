@@ -6,35 +6,44 @@ import android.graphics.drawable.Drawable;
 import android.view.Gravity;
 import android.view.View;
 import android.support.v4.content.ContextCompat;
-import android.widget.TextView;
 
 public class FloatingBubbleConfig {
     private Drawable bubbleIcon;
     private Drawable removeBubbleIcon;
+    private Drawable bubbleExpansionIcon;
     private View expandableView;
     private int bubbleIconDp;
     private int removeBubbleIconDp;
     private float removeBubbleAlpha;
     private int expandableColor;
     private int triangleColor;
+    private int notificationBackgroundColor;
+    private int notificationCounter;
     private int gravity;
     private int paddingDp;
     private int borderRadiusDp;
+    private int touchClickTime;
     private boolean physicsEnabled;
+    private boolean moveBubbleOnTouch;
 
     private FloatingBubbleConfig(Builder builder) {
         bubbleIcon = builder.bubbleIcon;
         removeBubbleIcon = builder.removeBubbleIcon;
+        bubbleExpansionIcon = builder.bubbleExpansionIcon;
         expandableView = builder.expandableView;
         bubbleIconDp = builder.bubbleIconDp;
         removeBubbleIconDp = builder.removeBubbleIconDp;
         expandableColor = builder.expandableColor;
         triangleColor = builder.triangleColor;
+        notificationBackgroundColor = builder.notificationBackgroundColor;
+        notificationCounter = builder.notificationCounter;
         gravity = builder.gravity;
         paddingDp = builder.paddingDp;
         borderRadiusDp = builder.borderRadiusDp;
+        touchClickTime = builder.touchClickTime;
         physicsEnabled = builder.physicsEnabled;
         removeBubbleAlpha = builder.removeBubbleAlpha;
+        moveBubbleOnTouch = builder.moveBubbleOnTouch;
     }
 
     public static Builder getDefaultBuilder(Context context) {
@@ -63,6 +72,10 @@ public class FloatingBubbleConfig {
         return removeBubbleIcon;
     }
 
+    public Drawable getBubbleExpansionIcon() {
+        return bubbleExpansionIcon;
+    }
+
     public View getExpandableView() {
         return expandableView;
     }
@@ -83,12 +96,20 @@ public class FloatingBubbleConfig {
         return triangleColor;
     }
 
+    public int getNotificationBackgroundColor() { return notificationBackgroundColor; }
+
+    public int getNotificationCounter(){return notificationCounter;}
+
     public int getGravity() {
         return gravity;
     }
 
     public int getPaddingDp() {
         return paddingDp;
+    }
+
+    public int getTouchClickTime(){
+       return touchClickTime;
     }
 
     public boolean isPhysicsEnabled() {
@@ -103,19 +124,28 @@ public class FloatingBubbleConfig {
         return removeBubbleAlpha;
     }
 
+    public boolean isMoveBubbleOnTouchEnabled(){
+       return moveBubbleOnTouch;
+    }
+
     public static final class Builder {
         private Drawable bubbleIcon;
         private Drawable removeBubbleIcon;
+        private Drawable bubbleExpansionIcon;
         private View expandableView;
         private int bubbleIconDp = 64;
         private int removeBubbleIconDp = 64;
         private int expandableColor = Color.WHITE;
         private int triangleColor = Color.WHITE;
+        private int notificationBackgroundColor = Color.RED;
+        private int notificationCounter = 0;
         private int gravity = Gravity.END;
         private int paddingDp = 4;
         private int borderRadiusDp = 4;
+        private int touchClickTime = 250;
         private float removeBubbleAlpha = 1.0f;
         private boolean physicsEnabled = true;
+        private boolean moveBubbleOnTouch = true;
 
         public Builder() {
         }
@@ -127,6 +157,11 @@ public class FloatingBubbleConfig {
 
         public Builder removeBubbleIcon(Drawable val) {
             removeBubbleIcon = val;
+            return this;
+        }
+
+        public Builder bubbleExpansionIcon(Drawable val) {
+            bubbleExpansionIcon = val;
             return this;
         }
 
@@ -147,6 +182,16 @@ public class FloatingBubbleConfig {
 
         public Builder triangleColor(int val) {
             triangleColor = val;
+            return this;
+        }
+
+        public Builder notificationBackgroundColor(int val) {
+            notificationBackgroundColor = val;
+            return this;
+        }
+
+        public Builder notificationCounter(int val){
+            notificationCounter = val;
             return this;
         }
 
@@ -182,9 +227,19 @@ public class FloatingBubbleConfig {
             return this;
         }
 
+        public Builder touchClickTime(int val){
+           touchClickTime = val;
+           return this;
+        }
+
         public Builder physicsEnabled(boolean val) {
             physicsEnabled = val;
             return this;
+        }
+
+        public Builder moveBubbleOnTouch(boolean val){
+           moveBubbleOnTouch = val;
+           return this;
         }
 
         public Builder removeBubbleAlpha(float val) {

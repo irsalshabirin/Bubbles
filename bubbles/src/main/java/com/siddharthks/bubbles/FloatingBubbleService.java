@@ -7,9 +7,11 @@ import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.graphics.PixelFormat;
 import android.graphics.Point;
+import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.IBinder;
 import android.support.annotation.NonNull;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.CardView;
 import android.util.DisplayMetrics;
 import android.view.Gravity;
@@ -19,6 +21,7 @@ import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 public class FloatingBubbleService extends Service {
 
@@ -165,7 +168,6 @@ public class FloatingBubbleService extends Service {
         bubbleParams = getDefaultWindowParams();
         bubbleParams.gravity = Gravity.TOP | Gravity.START;
         bubbleParams.width = iconSize;
-        bubbleParams.height = iconSize;
         windowManager.addView(bubbleView, bubbleParams);
 
         // Setting the configuration
@@ -173,8 +175,19 @@ public class FloatingBubbleService extends Service {
             ((ImageView) removeBubbleView).setImageDrawable(config.getRemoveBubbleIcon());
         }
         if (config.getBubbleIcon() != null) {
-            ((ImageView) bubbleView).setImageDrawable(config.getBubbleIcon());
+            ((ImageView) bubbleView.findViewById(R.id.bubble_background)).setImageDrawable(config.getBubbleIcon());
         }
+
+        // Setting the notification config
+        ImageView notificationBackground = bubbleView.findViewById(R.id.notification_background);
+        notificationBackground.setImageDrawable(ContextCompat.getDrawable(getContext(), R.drawable.rounded_notification_background));
+        notificationBackground.setColorFilter(config.getNotificationBackgroundColor());
+        TextView counterNotification = bubbleView.findViewById(R.id.counter_notification);
+        counterNotification.setText(Integer.toString(config.getNotificationCounter()));
+
+        // Setting the expansion config
+        ImageView expansionIcon = bubbleView.findViewById(R.id.bubble_expansion);
+        expansionIcon.setImageDrawable(config.getBubbleExpansionIcon());
 
         CardView card = (CardView) expandableView.findViewById(R.id.expandableViewCard);
         card.setRadius(dpToPixels(config.getBorderRadiusDp()));
@@ -237,6 +250,8 @@ public class FloatingBubbleService extends Service {
                 .config(config)
                 .marginBottom(getExpandableViewBottomMargin())
                 .padding(dpToPixels(config.getPaddingDp()))
+                .moveBubbleOnTouch(config.isMoveBubbleOnTouchEnabled())
+                .touchClickTime(config.getTouchClickTime())
                 .build();
 
         bubbleView.setOnTouchListener(touch);
@@ -318,6 +333,81 @@ public class FloatingBubbleService extends Service {
      */
     protected void setState(boolean expanded) {
         touch.setState(expanded);
+    }
+
+    /**
+     * Toggles the visibility of the decorator
+     */
+    protected void toggleExpansionVisibility(){
+        final ImageView expansionImage = bubbleView.findViewById(R.id.bubble_expansion);
+        if (expansionImage.getVisibility() == View.VISIBLE)
+            expansionImage.setVisibility(View.GONE);
+        else
+            expansionImage.setVisibility(View.VISIBLE);
+    }
+
+    /**
+     * Changes the decorator visibility
+     * @param setVisible The new decorator visibility
+     */
+    protected void setExpansionVisibility(boolean setVisible){
+        final ImageView expansionImage = bubbleView.findViewById(R.id.bubble_expansion);
+        if(setVisible)
+            expansionImage.setVisibility(View.VISIBLE);
+        else
+            expansionImage.setVisibility(View.GONE);
+    }
+
+    /**
+    * Changes the expansion image listener
+    * @param listener The listener for the expansion image view
+    */
+    protected void setExpansionListener(View.OnClickListener listener){
+        final ImageView expansionImage = bubbleView.findViewById(R.id.bubble_expansion);
+        expansionImage.setOnClickListener(listener);
+    }
+
+    /**
+     * Increase the counter in the notification view
+     * @param amount the units to increase the counter
+     */
+    protected void increaseNotificationCounterBy(int amount){
+        final TextView notificationCounter = bubbleView.findViewById(R.id.counter_notification);
+        final String lastCounter = notificationCounter.getText().toString();
+        final int counter = Integer.parseInt(lastCounter) + amount;
+        if(counter > 0)
+            bubbleView.findViewById(R.id.notification_view).setVisibility(View.VISIBLE);
+        notificationCounter.setText(Integer.toString(counter));
+    }
+
+    /**
+     * Decrease the counter in the notification view
+     * @param amount the units to decrease the counter
+     */
+    protected void decreaseNotificationCounterBy(int amount){
+        final TextView notificationCounter = bubbleView.findViewById(R.id.counter_notification);
+        final String lastCounter = notificationCounter.getText().toString();
+        final int counter = Integer.parseInt(lastCounter) - amount;
+        if(counter < 1)
+            bubbleView.findViewById(R.id.notification_view).setVisibility(View.GONE);
+        notificationCounter.setText(Integer.toString(counter));
+    }
+
+    /**
+     * Changes the bubble icon and keeps the original
+     * @param updatedIcon The new bubble icon
+     */
+    protected void updateBubbleIcon(Drawable updatedIcon){
+       final ImageView bubbleBackground = bubbleView.findViewById(R.id.bubble_background);
+       bubbleBackground.setImageDrawable(updatedIcon);
+    }
+
+    /*
+     * Restores the bubble icon to the original icon
+     */
+    protected void restoreBubbleIcon(){
+        final ImageView bubbleBackground = bubbleView.findViewById(R.id.bubble_background);
+        bubbleBackground.setImageDrawable(config.getBubbleIcon());
     }
 
     /**
