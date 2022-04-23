@@ -155,6 +155,9 @@ setExpansionVisibility(false)
 
 // To toggle
 toggleExpansionVisibility()
+
+// To set a listener in the icon
+setExpansionListener(onClickListener)
 ```
 
 ## Acknowledgements
