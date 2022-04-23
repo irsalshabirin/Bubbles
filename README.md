@@ -124,5 +124,35 @@ setState(true);
 setState(false);
 ```
 
+You can change the notification counter at runtime by
+```java
+// To increase
+increaseNotificationCounterBy(1);
+
+// To decrease
+decreaseNotificationCounterBy(1);
+```
+
+You can change the bubble icon at runtime by
+```java
+// To update the icon
+updateBubbleIcon(drawableResource);
+
+// To restore to the default build bubble icon
+restoreBubbleIcon();
+```
+
+The expansion in the bubble can be activated by
+```java
+// To show
+setExpansionVisibility(true)
+
+// To hide
+setExpansionVisibility(false)
+
+// To toggle
+toggleExpansionVisibility()
+```
+
 ## Acknowledgements
 Thanks to [@Tobaloidee](https://github.com/Tobaloidee) for the awesome logo!
