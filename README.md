@@ -99,6 +99,9 @@ public class FloatingService extends FloatingBubbleService {
         
         // Set the start value for the notification counter
         .notificationCounter(0)
+        
+        // Activates a expansion icon in the bubble
+        .bubbleExpansionIcon(expansionIconDrawable)
 
         // Building
         .build();
@@ -142,7 +145,7 @@ updateBubbleIcon(drawableResource);
 restoreBubbleIcon();
 ```
 
-The expansion in the bubble can be activated by
+If you activate the expansion icon, you can config the expansion at runtime by
 ```java
 // To show
 setExpansionVisibility(true)
