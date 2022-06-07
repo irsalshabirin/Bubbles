@@ -51,7 +51,7 @@ public class SimpleService extends FloatingBubbleService {
                 .borderRadiusDp(0)
                 .expandableColor(Color.WHITE)
                 .triangleColor(0xFF215A64)
-                .gravity(Gravity.LEFT)
+                .gravity(Gravity.END)
                 .physicsEnabled(true)
                 .moveBubbleOnTouch(false)
                 .touchClickTime(100)

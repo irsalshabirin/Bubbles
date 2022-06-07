@@ -9,6 +9,8 @@
         <entry key="app/src/main/res/layout/sample_view.xml" value="0.3234375" />
         <entry key="bubbles/src/main/res/drawable/rounded_notification_background.xml" value="0.174" />
         <entry key="bubbles/src/main/res/layout/floating_bubble_view.xml" value="1.1928571428571428" />
+        <entry key="bubbles/src/main/res/layout/floating_expandable_view.xml" value="0.3234375" />
+        <entry key="bubbles/src/main/res/layout/floating_remove_bubble_view.xml" value="0.3234375" />
       </map>
     </option>
   </component>
