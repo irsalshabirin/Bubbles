@@ -1,5 +1,7 @@
 package com.siddharthks.sampleapp;
 
+import android.app.ActivityManager;
+import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -27,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
         increaseNotification.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
+                if(isSimpleServiceStopped()) return;
                 Intent intent = new Intent(getApplicationContext(), SimpleService.class);
                 intent.setAction("increase");
                 startService(intent);
@@ -36,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
         decreaseNotification.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
+                if(isSimpleServiceStopped()) return;
                 Intent intent = new Intent(getApplicationContext(), SimpleService.class);
                 intent.setAction("decrease");
                 startService(intent);
@@ -45,6 +49,7 @@ public class MainActivity extends AppCompatActivity {
         updateIcon.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
+                if(isSimpleServiceStopped()) return;
                 Intent intent = new Intent(getApplicationContext(), SimpleService.class);
                 intent.setAction("updateIcon");
                 startService(intent);
@@ -54,6 +59,7 @@ public class MainActivity extends AppCompatActivity {
         restoreIcon.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
+                if(isSimpleServiceStopped()) return;
                 Intent intent = new Intent(getApplicationContext(), SimpleService.class);
                 intent.setAction("restoreIcon");
                 startService(intent);
@@ -63,10 +69,25 @@ public class MainActivity extends AppCompatActivity {
         toggleExpansion.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
+                if(isSimpleServiceStopped()) return;
                 Intent intent = new Intent(getApplicationContext(), SimpleService.class);
                 intent.setAction("toggleExpansion");
                 startService(intent);
             }
         });
+    }
+
+    /**
+     *  This function checks if the serviceClass is running, in order to
+     *  avoid calls to a dead or not active service
+     * @return If the service is running or not
+     */
+    private boolean isSimpleServiceStopped() {
+        final ActivityManager manager = (ActivityManager) getSystemService(Context.ACTIVITY_SERVICE);
+        for (ActivityManager.RunningServiceInfo service : manager.getRunningServices(Integer.MAX_VALUE)) {
+            if (SimpleService.class.getName().equals(service.service.getClassName()))
+                return false;
+        }
+        return true;
     }
 }
