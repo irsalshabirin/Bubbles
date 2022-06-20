@@ -5,7 +5,7 @@ import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.view.Gravity;
 import android.view.View;
-import android.support.v4.content.ContextCompat;
+import androidx.core.content.ContextCompat;
 
 public class FloatingBubbleConfig {
     private Drawable bubbleIcon;
